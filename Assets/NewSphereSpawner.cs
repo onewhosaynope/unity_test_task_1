@@ -6,6 +6,8 @@ public class NewSphereSpawner : MonoBehaviour {
 
     public GameObject prefab;
     public float prefabSpeed;
+    public float mousePositionMultiplier;
+    public float mouseZaxis;
     private Camera cam;
 
 
@@ -19,26 +21,17 @@ public class NewSphereSpawner : MonoBehaviour {
         
         if (Input.GetButtonDown("Fire1")) {
 
-            // Vector3 mousePos = Input.mousePosition;
-            // GameObject projectile = Instantiate(prefab, cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane)), transform.rotation) as GameObject;
-            // projectile.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, 2000));
-
-            // Vector3 mousePos = Input.mousePosition;
+            // Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x * mousePositionMultiplier, Input.mousePosition.y * mousePositionMultiplier, cam.nearClipPlane));
+            // Vector3 direction = worldMousePosition - cam.transform.position;
+            // direction.Normalize();
             // GameObject projectile = Instantiate(prefab, cam.transform.position, cam.transform.rotation) as GameObject;
-            // projectile.GetComponent<Rigidbody>().AddForce(new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane));
-            
-            // Vector3 mousePos = Input.mousePosition;
-            // GameObject projectile = Instantiate(prefab, cam.transform.position, cam.transform.rotation) as GameObject;
-            // Vector3 direction = new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane);
             // projectile.GetComponent<Rigidbody>().AddForce(direction * prefabSpeed);
-            
 
-            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.x, cam.nearClipPlane));
-            Vector3 direction = worldMousePosition - cam.transform.position;
-            direction.Normalize();
-            GameObject projectile = Instantiate(prefab, cam.transform.position, cam.transform.rotation) as GameObject;
-            projectile.GetComponent<Rigidbody>().AddForce(direction * prefabSpeed);
-
+            // Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x * mousePositionMultiplier, Input.mousePosition.y * mousePositionMultiplier, cam.nearClipPlane - mouseZaxis));
+            // Vector3 direction = worldMousePosition - cam.transform.position;
+            // direction.Normalize();
+            // GameObject projectile = Instantiate(prefab, cam.transform.position, cam.transform.rotation) as GameObject;
+            // projectile.GetComponent<Rigidbody>().AddForce(direction);
 
         }
 
