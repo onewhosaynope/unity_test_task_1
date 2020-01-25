@@ -34,7 +34,7 @@ public class SphereSpawner : MonoBehaviour {
         if(Input.GetButtonDown("Fire2")) {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit)) {
-                Instantiate(prefab, new Vector3(hit.point.x, hit.point.y, hit.point.z), Quaternion.identity)
+                Instantiate(prefab, new Vector3(hit.point.x, hit.point.y, hit.point.z), Quaternion.identity);
             }
         }
 
