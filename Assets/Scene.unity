@@ -805,7 +805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 8288460562181581247, guid: cc6ef34de6167724dbb3e512e8682bf2, type: 3}
-  prefabSpeed: 300
+  prefabSpeed: 50
 --- !u!1 &1696080475
 GameObject:
   m_ObjectHideFlags: 0

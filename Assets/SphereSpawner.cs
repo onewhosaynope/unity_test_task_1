@@ -20,14 +20,8 @@ public class SphereSpawner : MonoBehaviour {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit)) {
                 Vector3 target = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-                // Debug.DrawLine(Camera.main.transform.position, target, Color.blue, 100);
-                // Debug.DrawLine(Camera.main.transform.position, target * prefabSpeed, Color.red, 100);
-                // Debug.DrawLine(Camera.main.transform.position, target.normalized, Color.green, 100);
-                // Debug.DrawLine(Camera.main.transform.position, target.normalized * prefabSpeed, Color.yellow, 100);
-                // Vector3 test = new Vector3(target.x, target.y, target.z);
-                // Vector3 testSpeed = new Vector3(target.x, target.y * prefabSpeed, target.z);
-                GameObject projectile = Instantiate(prefab, Camera.main.transform.position, Camera.main.transform.rotation) as GameObject;
-                projectile.GetComponent<Rigidbody>().AddForce(target * prefabSpeed, ForceMode.Impulse);
+                GameObject projectile = Instantiate(prefab, Camera.main.transform.position, Quaternion.LookRotation(target)) as GameObject;
+                projectile.GetComponent<Rigidbody>().AddForce((target - projectile.transform.position) * prefabSpeed, ForceMode.Impulse);
             }
         }
 
